@@ -1,7 +1,7 @@
 name: workflow template for Gomu Developers Community
 
 on: 
-    push:
+     push:
         branches: ['master','dev']
 
     
@@ -27,7 +27,9 @@ jobs:
               env:
                 GOMU_BOT_TOKEN: ${{secrets.GOMU_BOT_TOKEN}}
                 GOMU_CHANEL_ID: ${{secrets.GOMU_CHANEL_ID}}
+                GITHUB_AUTHOR:  ${{github.event.sender.login}}
+                GITHUB_REPOSITORY: ${{github.event.repository}}
               run: |
-                    python3 src/main.py
+                    python3 src/notify_on_push.py
               
               
