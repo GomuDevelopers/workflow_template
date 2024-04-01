@@ -8,7 +8,7 @@ def send_msg(msg: str):
     chanel_id = os.environ['GOMU_CHANEL_ID']
 
     baseurl = "https://api.telegram.org"
-    url = f"{baseurl}/bot{token}/"
+    url = f"{baseurl}/bot{token}/sendMessage"
     payload = dict(chat_id=chanel_id, text=msg)
 
     try:
