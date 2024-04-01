@@ -2,7 +2,7 @@ name: workflow template for Gomu Developers Community
 
 on: 
     push:
-        branches: ["master","dev"]
+        branches: [master',dev']
 
     
 jobs:
