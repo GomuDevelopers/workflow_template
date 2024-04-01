@@ -15,4 +15,4 @@ def send_msg(msg: str):
         requests.post(url=url, params=payload)
         raise Exception()
     except Exception as exc:
-        print(exc.__str__)
+        print(type(exc))
