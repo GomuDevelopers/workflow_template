@@ -9,7 +9,7 @@ def send_msg(text: str):
 
     baseurl = "api.telegram.org"
     url = f"{baseurl}/bot{token}"
-    payload = dict(user_id=chanel_id, text=text)
+    payload = dict(chat_id=chanel_id, text=text)
 
     try:
         requests.post(url=url, params=payload)
