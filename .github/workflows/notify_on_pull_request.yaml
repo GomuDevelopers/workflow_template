@@ -1,0 +1,32 @@
+name: workflow template for Gomu Developers Community
+
+on: 
+    pull_request:
+        branches: ["master","dev"]
+
+    
+jobs:
+    build_and_notify:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checking out the repository
+              uses: actions/checkout@v3 
+
+            - name: setting up python environment
+              uses: actions/setup-python@v5
+              with:
+                python-version: 10.3
+                cache: 'pip'
+              
+            
+            - name: installing and caching dependencies
+              run: |
+                    python3 -m pip install -r requirements.txt
+            
+            - name: running python script
+              run: |
+                    python3 src/notify_on_pull_request.py
+              env:
+                GOMU_BOT_TOKEN: ${{secrets.GOMU_BOT_TOKEN}}
+                GOMU_CHANEL_ID: ${{secrets.GOMU_CHANEL_ID}}
+              
