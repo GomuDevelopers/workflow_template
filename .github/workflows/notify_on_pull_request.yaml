@@ -16,12 +16,12 @@ jobs:
               uses: actions/setup-python@v5
               with:
                 python-version: 10.3
-              
+                cache: 'pip'
             
             - name: installing and caching dependencies
               run: |
                     python3 -m pip install -r requirements.txt
-                
+              
             
             - name: running python script
               run: |
