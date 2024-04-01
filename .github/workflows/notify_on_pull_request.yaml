@@ -25,7 +25,7 @@ jobs:
             
             - name: running python script
               run: |
-                    python3 src/notify_on_pull_request.py
+                    python3 src/main.py
               env:
                 GOMU_BOT_TOKEN: ${{secrets.GOMU_BOT_TOKEN}}
                 GOMU_CHANEL_ID: ${{secrets.GOMU_CHANEL_ID}}

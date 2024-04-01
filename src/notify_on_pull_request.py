@@ -1,4 +1,5 @@
 from bot import send_msg
 
-if __name__ == "__main__":
+
+def send_pr_notification():
     send_msg("hello world")
