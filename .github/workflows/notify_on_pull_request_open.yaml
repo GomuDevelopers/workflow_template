@@ -1,0 +1,34 @@
+name: Pull Request workflow template Made for Gomu Developers OS Community
+on:
+    pull_request:
+        branches:
+            -'*'
+jobs:
+    rbuild_and_notify:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checking out the repository
+              uses: actions/checkout@v3 
+
+            - name: setting up python environment
+              uses: actions/setup-python@v5
+              with: 
+                 python-version: '3.10'
+                 cache: 'pip'
+            
+            - name: installing and caching dependencies
+              run: |
+                    python3 -m pip install -r requirements.txt
+              
+            
+            - name: running Pull request Actions python script
+              env:
+                GOMU_BOT_TOKEN: ${{secrets.GOMU_BOT_TOKEN}}
+                GOMU_CHANEL_ID: ${{secrets.GOMU_CHANEL_ID}}
+                GITHUB_AUTHOR:  ${{github.event.sender.login}}
+                GITHUB_REPOSITORY: ${{github.repository}}
+                GITHUB_PR_TITLE: ${{github.event.pull_request.title}}
+                GITHUB_PR_BODY: ${{github.event.pull_request.body}}
+                GITHUB_PR_LINK: ${{github.event.pull_request._links}}
+              run: |
+                    python3 src/notify_on_pull_request.py
