@@ -29,8 +29,8 @@ jobs:
                 GOMU_CHANEL_ID: ${{secrets.GOMU_CHANEL_ID}}
                 GITHUB_AUTHOR:  ${{github.event.sender.login}}
                 GITHUB_REPOSITORY: ${{github.repository}}
-                GITHBU_PuSH_NUMBER: ${{github.event.commits.committer.name}}
-                GITHUB_COMMIT: ${{github.event.commits.message}}
+                GITHUB_PuSH_NUMBER: ${{github.event.commits}}
+                GITHUB_COMMIT: ${{github.event.head_commit.message}}
               run: |
                     python3 src/notify_on_push.py
               
