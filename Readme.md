@@ -1,4 +1,7 @@
 # GomuDevelopers workflow template 🚀
+
+Community Core Project
+
   This project consist of creating a workflow to that aim is to be reused on several other different projects as a template **🛠️**.  Before continuing let's clairify 
   some points for newbies .
 - **Workflow** refers to a series of automated steps or tasks that are executed in response to specific events or triggers within a software development project ⚙️.
@@ -8,6 +11,8 @@
  > events like folks, pull request , builds . Moreover , on automation task like `constinous intergration` , `continous delivery` and  `testing` .
 
    [Link to official documentation](https://docs.github.com/fr/actions/learn-github-actions)
+
+   Don't hesitate if you want to know more
    
 
   
