@@ -7,8 +7,10 @@ def send_msg_on_push():
     author = os.environ['GITHUB_AUTHOR']
     repository = os.environ['GITHUB_REPOSITORY']
     link = f"https://github.com/{repository}"
+    commits = os.environ['GITHUB_COMMIT']
+    count = os.environ['GITHBU_PuSH_NUMBER']
     date = time.ctime()
-    text = f"Push 🗞 Made by *{author}* on {date} \n\n Feel free to review it at {link}"
+    text = f"📌 Push effectué par {author} 🧠 le {date} \n\n Push n*: {count} \n Commits: {commits[:20]}... \n sentez vous libre l'examiné  {link}"
     send_msg(text)
 
 
