@@ -1,37 +1,37 @@
-name: Push workflow template Made for  Gomu Developers OS  Community
+# name: Push workflow template Made for  Gomu Developers OS  Community
 
-on: 
-     push:
-        branches: ['master','dev']
+# on: 
+#      push:
+#         branches: ['master','dev']
 
     
-jobs:
-    build_and_notify:
-        runs-on: ubuntu-latest
-        steps:
-            - name: checking out the repository
-              uses: actions/checkout@v3 
+# jobs:
+#     build_and_notify:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: checking out the repository
+#               uses: actions/checkout@v3 
 
-            - name: setting up python environment
-              uses: actions/setup-python@v5
-              with: 
-                 python-version: '3.10'
-                 cache: 'pip'
+#             - name: setting up python environment
+#               uses: actions/setup-python@v5
+#               with: 
+#                  python-version: '3.10'
+#                  cache: 'pip'
             
-            - name: installing and caching dependencies
-              run: |
-                    python3 -m pip install -r requirements.txt
+#             - name: installing and caching dependencies
+#               run: |
+#                     python3 -m pip install -r requirements.txt
               
             
-            - name: running Push Action python script
-              env:
-                GOMU_BOT_TOKEN: ${{secrets.GOMU_BOT_TOKEN}}
-                GOMU_CHANEL_ID: ${{secrets.GOMU_CHANEL_ID}}
-                GITHUB_AUTHOR:  ${{github.event.sender.login}}
-                GITHUB_REPOSITORY: ${{github.repository}}
-                # GITHUB_PuSH_NUMBER: ${{github.event.commits.added}}
-                GITHUB_COMMIT: ${{github.event.head_commit.message}}
-              run: |
-                    python3 src/notify_on_push.py
+#             - name: running Push Action python script
+#               env:
+#                 GOMU_BOT_TOKEN: ${{secrets.GOMU_BOT_TOKEN}}
+#                 GOMU_CHANEL_ID: ${{secrets.GOMU_CHANEL_ID}}
+#                 GITHUB_AUTHOR:  ${{github.event.sender.login}}
+#                 GITHUB_REPOSITORY: ${{github.repository}}
+#                 # GITHUB_PuSH_NUMBER: ${{github.event.commits.added}}
+#                 GITHUB_COMMIT: ${{github.event.head_commit.message}}
+#               run: |
+#                     python3 src/notify_on_push.py
               
               
