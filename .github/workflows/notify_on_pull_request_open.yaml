@@ -28,6 +28,6 @@ jobs:
                 GITHUB_REPOSITORY: ${{github.repository}}
                 GITHUB_PR_TITLE: ${{github.event.pull_request.title}}
                 GITHUB_PR_BODY: ${{github.event.pull_request.body}}
-                GITHUB_PR_LINK: ${{github.event.pull_request._links}}
+                GITHUB_PR_LINK: ${{github.event.pull_request._links.html.href}}
               run: |
                     python3 src/notify_on_pull_request.py
