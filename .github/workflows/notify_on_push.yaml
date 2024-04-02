@@ -1,4 +1,4 @@
-name: workflow template for Gomu Developers Community
+name: Push workflow template Made for  Gomu Developers OS  Community
 
 on: 
      push:
@@ -23,13 +23,13 @@ jobs:
                     python3 -m pip install -r requirements.txt
               
             
-            - name: running python script
+            - name: running Push Action python script
               env:
                 GOMU_BOT_TOKEN: ${{secrets.GOMU_BOT_TOKEN}}
                 GOMU_CHANEL_ID: ${{secrets.GOMU_CHANEL_ID}}
                 GITHUB_AUTHOR:  ${{github.event.sender.login}}
                 GITHUB_REPOSITORY: ${{github.repository}}
-                GITHUB_PuSH_NUMBER: ${{github.event.commits.added}}
+                # GITHUB_PuSH_NUMBER: ${{github.event.commits.added}}
                 GITHUB_COMMIT: ${{github.event.head_commit.message}}
               run: |
                     python3 src/notify_on_push.py
