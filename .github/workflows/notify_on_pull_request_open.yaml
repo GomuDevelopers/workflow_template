@@ -1,8 +1,7 @@
 name: Pull Request workflow template Made for Gomu Developers OS Community
 on:
     pull_request:
-        branches:
-            -'*'
+        branches: ['master','dev']
 jobs:
     rbuild_and_notify:
         runs-on: ubuntu-latest
