@@ -12,7 +12,7 @@ Community Core Project
 
    [Link to official documentation](https://docs.github.com/fr/actions/learn-github-actions)
 
-   Don't hesitate if you want to know more
+   Don't hesitate if you want to know more on GOMU Developers Community
    
 
   
