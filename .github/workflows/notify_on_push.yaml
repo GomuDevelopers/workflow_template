@@ -3,8 +3,15 @@ name: Push workflow template Made for  Gomu Developers OS  Community
 on: 
      push:
         branches: ['master','dev']
-
-    
+     workflow_call:
+         secrets:
+           GOMU_CHANEL_ID:
+             description: 'Specify the telegram channel id'
+             required: true
+           GOMU_BOT_TOKEN:
+             description: 'Specify telegram bot token'
+             required: true
+             
 jobs:
     build_and_notify:
         runs-on: ubuntu-latest
