@@ -27,7 +27,11 @@ jobs:
             
             - name: installing and caching dependencies
               run: |
+                    if [ -f requirements.txt ]; then
                     python3 -m pip install -r requirements.txt
+                    else
+                    echo "No requirements.txt found — skipping pip install."
+                    fi
               
             
             - name: running Push Action python script
